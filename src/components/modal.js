@@ -24,6 +24,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function closeModal(e) {
+	// Only close if clicking modal background, close button, or pressing Escape
 	if (e.target === modal || e.target.closest("#close-modal") || e.key === "Escape") {
 		hideWithAnimation(modal, "fade-in", "fade-out");
 		document.body.classList.remove("overflow-hidden");

@@ -5,6 +5,7 @@ import { renderArticle } from "./subredditManager";
 import Loader from "../components/loader";
 import emptyBoxHandler from "../components/emptyBox";
 
+// Handles action button clicks for refresh or delete
 function getActionButton(e) {
 	const btn = e.target.closest("button[data-action]");
 	if (!btn) return;
@@ -14,6 +15,7 @@ function getActionButton(e) {
 	action === "refresh" ? refreshSubreddit(value) : deleteSubreddit(value);
 }
 
+// Refreshes subreddit content and updates UI
 async function refreshSubreddit(value) {
 	const section = document.getElementById(`sub-${value}`);
 
@@ -44,6 +46,7 @@ async function refreshSubreddit(value) {
 
 const scrollNav = document.querySelector(".scroll-nav");
 
+// Deletes subreddit from storage and UI
 function deleteSubreddit(value) {
 	const subreddits = getSubreddits();
 

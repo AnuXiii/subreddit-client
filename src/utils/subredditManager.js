@@ -2,9 +2,11 @@ import { fetchSubReddit } from "./ApiService";
 import { getActionButton } from "./subredditActions";
 import { sectionScroller } from "./slider";
 
+// Main container for subreddit sections
 const mainContainer = document.querySelector(".main");
 mainContainer.addEventListener("click", getActionButton);
 
+// Render subreddit header and posts
 async function renderHeader(value) {
 	const data = await fetchSubReddit(value);
 	const fragment = document.createDocumentFragment();
@@ -48,6 +50,7 @@ async function renderHeader(value) {
 	sectionScroller(section);
 }
 
+// Render a single subreddit post/article
 function renderArticle(item, index) {
 	const article = document.createElement("article");
 	article.style.animationDelay = `${index * 20}ms`;

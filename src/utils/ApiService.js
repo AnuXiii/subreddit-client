@@ -1,5 +1,6 @@
 import { toast } from "../components/toast";
 
+// Utility functions for interacting with Reddit API
 async function fetchSubReddit(input) {
 	let cachedData = [];
 

@@ -1,6 +1,6 @@
 import { hideWithAnimation, showWithAnimation } from "../utils/animationUtils";
 
-// dropdown control
+// Dropdown control for theme options
 const openDropdownBtn = document.getElementById("open-dropdown");
 const themeOptionsDropdown = document.querySelector(".theme-options");
 
@@ -27,7 +27,7 @@ document.addEventListener("click", (e) => {
 	}
 });
 
-// control tracker on dorpdown theme options
+// control tracker on dropdown theme options
 const tracker = themeOptionsDropdown.querySelector(".tracker");
 const themeOptionChild = themeOptionsDropdown.querySelector(".theme-opt");
 
@@ -52,9 +52,8 @@ function trackerHandler() {
 	});
 }
 
-// theme configuration
+// theme initialization and event listeners
 const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
 themeOptionsDropdown.addEventListener("click", getTheme);
 
 function loadTheme() {

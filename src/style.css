@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap&subset=latin,latin-ext");
 @import "tailwindcss";
 @import "./css/toastify.css";
 @import "./css/animations.css";
@@ -22,7 +22,10 @@
 	--color-neutral-900: #171717;
 	--color-neutral-700: #404040;
 	--color-primary: #7f22fe;
-	--color-danger: oklch(64.5% 0.246 16.439);
+	--color-danger: #ff2056;
+	--z-modal: 101;
+	--z-dropdown: 98;
+	--z-loader: 99;
 }
 
 /*//////////////////////////////////*/
@@ -129,15 +132,17 @@
 }
 
 .theme-options {
-	@apply absolute top-[120%] right-[10%] w-32 z-98 bg-slate-100 dark:bg-neutral-800 rounded-lg border border-solid border-black/10 dark:border-white/10 overflow-hidden;
+	@apply absolute top-[120%] right-[10%] w-32  bg-slate-100 dark:bg-neutral-800 rounded-lg border border-solid border-black/10 dark:border-white/10 overflow-hidden;
+	z-index: var(--z-dropdown);
 }
 
 .theme-opt {
 	@apply text-xl w-full p-4 flex justify-center items-center duration-200 ease-custom hover:text-violet-400;
 }
 
+/* for dropdown theme options */
 .tracker {
-	@apply absolute w-full scale-0 opacity-0 bg-slate-200  z-[-1] dark:bg-neutral-600 pointer-events-none duration-100 ease-custom;
+	@apply absolute w-full scale-0 opacity-0 bg-slate-200 z-[-1] dark:bg-neutral-600 pointer-events-none duration-100 ease-custom;
 
 	&.on {
 		@apply scale-100 opacity-100;
@@ -154,7 +159,8 @@
 }
 
 .modal {
-	@apply flex justify-center items-center fixed inset-0 bg-black/80 backdrop-blur-md px-4 z-101;
+	@apply flex justify-center items-center fixed inset-0 bg-black/80 backdrop-blur-md px-4;
+	z-index: var(--z-modal);
 }
 
 .modal-inner {
@@ -300,7 +306,8 @@
 }
 
 .loader {
-	@apply rounded-lg bg-black/70 backdrop-blur-md flex justify-center items-center absolute inset-0 z-99;
+	@apply rounded-lg bg-black/70 backdrop-blur-md flex justify-center items-center absolute inset-0;
+	z-index: var(--z-loader);
 }
 
 .spin {

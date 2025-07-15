@@ -1,3 +1,5 @@
+// Utility functions for showing and hiding elements with CSS animations
+
 function showWithAnimation(element, showClass = "fade-in", hideClass = "fade-out") {
 	element.classList.remove(hideClass);
 	element.classList.add(showClass);

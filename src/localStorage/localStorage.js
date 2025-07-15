@@ -32,10 +32,14 @@ async function loadSubreddits() {
 		}
 	} catch (error) {
 		console.error(error);
-		mainContainer.innerHTML = `<h1 class="text-2xl text-rose-500 font-bold">Failed to load your subreddits please reload the page</h1>`;
+		mainContainer.innerHTML = errMsg();
 	} finally {
 		Loader(mainContainer, false);
 	}
 }
+
+const errMsg = () => {
+	return `<h1 class="text-2xl text-rose-500 font-bold">Failed to load your subreddits please reload the page</h1>`;
+};
 
 export { getSubreddits, setSubreddits, saveSubreddit, loadSubreddits };

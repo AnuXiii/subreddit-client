@@ -1,20 +1,25 @@
+// Select main container and scroll buttons
 const mainContainer = document.querySelector(".main");
 const scrollRightBtn = document.getElementById("scroll-to--right");
 const scrollLeftBtn = document.getElementById("scroll-to--left");
 
+// Attach click events to scroll buttons
 scrollRightBtn.addEventListener("click", scrollRight);
 scrollLeftBtn.addEventListener("click", scrollLeft);
 
+// Scroll right by container width
 function scrollRight() {
 	const num = mainContainer.getBoundingClientRect().width;
 	mainContainer.scrollLeft += num;
 }
 
+// Scroll left by container width
 function scrollLeft() {
 	const num = mainContainer.getBoundingClientRect().width;
 	mainContainer.scrollLeft -= num;
 }
 
+// Enable/disable scroll buttons based on scroll position
 mainContainer.addEventListener("scroll", () => {
 	const scrollLeft = mainContainer.scrollLeft;
 	const scrollRight = mainContainer.scrollLeft + mainContainer.clientWidth;
@@ -32,6 +37,7 @@ mainContainer.addEventListener("scroll", () => {
 	}
 });
 
+// Enable drag-to-scroll for a section
 function sectionScroller(section) {
 	let isDown = false;
 	let startY;

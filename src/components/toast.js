@@ -1,5 +1,6 @@
 import Toastify from "toastify-js";
 
+// Show a toast message and remove existing toasts
 function toast(msg, color = "bg-primary") {
 	document.querySelectorAll(".toastify").forEach((el) => el.remove());
 

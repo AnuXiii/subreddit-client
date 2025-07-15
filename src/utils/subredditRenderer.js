@@ -10,9 +10,11 @@ const addNewSubredditBtn = document.getElementById("addnew-subreddit");
 const subredditInput = document.getElementById("subreddit-input");
 const scrollNav = document.querySelector(".scroll-nav");
 
+// Add event listeners for adding new subreddit
 addNewSubredditBtn.addEventListener("click", validator);
 subredditInput.addEventListener("keydown", (e) => (e.key === "Enter" ? validator() : ""));
 
+// Validate subreddit input and handle existence check
 function validator() {
 	if (subredditInput.value.trim() === "") {
 		toast("Please fill out the form", "bg-rose-500");
@@ -30,10 +32,12 @@ function validator() {
 	}
 }
 
+// Show toast if subreddit already exists
 function subHasExist(value) {
 	return toast(`"${value.toUpperCase()}" sub has already exist`, "bg-rose-500");
 }
 
+// Toggle add button disabled state based on input
 subredditInput.addEventListener("input", toggleBtnDisabled);
 function toggleBtnDisabled() {
 	if (subredditInput.value.trim() === "") {
@@ -42,6 +46,8 @@ function toggleBtnDisabled() {
 		addNewSubredditBtn.classList.remove("disabled");
 	}
 }
+
+// Creates a new subreddit entry by fetching its data and handling UI state.
 
 async function createNewSub(value, saveToLocalStorage = false) {
 	Loader(addNewSubredditBtn, true);
