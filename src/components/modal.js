@@ -1,3 +1,5 @@
+import { hideWithAnimation, showWithAnimation } from "../utils/animationUtils";
+
 const openModalBtn = document.getElementById("open-modal");
 const closeModalBtn = document.getElementById("close-modal");
 const modal = document.querySelector(".modal");
@@ -9,9 +11,7 @@ closeModalBtn.addEventListener("click", closeModal);
 modal.addEventListener("click", closeModal);
 
 function openModal() {
-	modal.hidden = false;
-	modal.classList.remove("fade-out");
-	modal.classList.add("fade-in");
+	showWithAnimation(modal, "fade-in", "fade-out");
 	document.body.classList.add("overflow-hidden");
 	document.getElementById("subreddit-input").focus();
 	isOpen = true;
@@ -25,18 +25,9 @@ document.addEventListener("keydown", (e) => {
 
 function closeModal(e) {
 	if (e.target === modal || e.target.closest("#close-modal") || e.key === "Escape") {
-		modal.classList.remove("fade-in");
-		modal.classList.add("fade-out");
-		modal.addEventListener(
-			"animationend",
-			() => {
-				modal.hidden = true;
-				document.body.classList.remove("overflow-hidden");
-				modal.classList.remove("fade-out");
-				isOpen = false;
-			},
-			{ once: true }
-		);
+		hideWithAnimation(modal, "fade-in", "fade-out");
+		document.body.classList.remove("overflow-hidden");
+		isOpen = false;
 	}
 }
 

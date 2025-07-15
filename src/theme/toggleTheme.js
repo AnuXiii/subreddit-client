@@ -1,3 +1,5 @@
+import { hideWithAnimation, showWithAnimation } from "../utils/animationUtils";
+
 // dropdown control
 const openDropdownBtn = document.getElementById("open-dropdown");
 const themeOptionsDropdown = document.querySelector(".theme-options");
@@ -8,25 +10,14 @@ openDropdownBtn.addEventListener("click", toggleDropdown);
 
 function toggleDropdown() {
 	if (!isOpen) {
-		themeOptionsDropdown.hidden = false;
-		themeOptionsDropdown.classList.remove("fade-out");
-		themeOptionsDropdown.classList.add("fade-in");
+		showWithAnimation(themeOptionsDropdown, "fade-in", "fade-out");
 		openDropdownBtn.classList.add("active");
 		trackerHandler();
 		isOpen = true;
 	} else {
-		themeOptionsDropdown.classList.add("fade-out");
-		themeOptionsDropdown.classList.remove("fade-in");
+		hideWithAnimation(themeOptionsDropdown, "fade-in", "fade-out");
 		openDropdownBtn.classList.remove("active");
-		themeOptionsDropdown.addEventListener(
-			"animationend",
-			() => {
-				themeOptionsDropdown.classList.remove("fade-out");
-				themeOptionsDropdown.hidden = true;
-				isOpen = false;
-			},
-			{ once: true }
-		);
+		isOpen = false;
 	}
 }
 

@@ -1,30 +1,85 @@
-TODO: Init css settings and reset styles and more...
-TODO: get fonts and icons
-TODO: create toastify component
-TODO: create loader component
-TODO: create structure of the app in html
-TODO: create modal component
-TODO: create toggleTheme component
+# Subreddit Client
 
-<!-- Start main app -->
+A simple web client for browsing multiple subreddits, built with Vite, Tailwind CSS, and vanilla JavaScript.
 
-APP OPTIONS =>
+> **Note:**  
+> This project was created as a practice project based on the [Intermediate Projects](https://roadmap.sh/projects/reddit-client) from [roadmap.sh](https://roadmap.sh/).
 
-    1. fetch subreddits when passed a value to apiservice function must be returned a [] array
-    get from this => https://corsproxy.io/?https://www.reddit.com/r/${value}.json
+## Features
 
-    2. validate the subreddit input and check is exist or not in local storage and DOM
+- Add and manage multiple subreddits
+- Fetch and display subreddit posts
+- Refresh or delete individual subreddits
+- Persistent subreddit list using localStorage
+- Light, dark, and system theme support
+- Responsive and modern UI with smooth animations
+- Toast notifications and loading indicators
 
-    3. create empty box for showing when localstorage and DOM is empty (has no subreddit)
+## Getting Started
 
-    4. can delete current subreddit and refresh current subreddit just articles not all of the section
+### Prerequisites
 
-    5. saved localstorage when user create a new subreddit
+- [Node.js](https://nodejs.org/) (v16 or newer recommended)
+- [npm](https://www.npmjs.com/)
 
-    6. toggle ghost button when user start typing on input
+### Installation
 
-    7. load saved subreddits from local storage
+1. Clone the repository:
 
-    8. create header and content must be seprate between
+   ```sh
+   git clone https://github.com/AnuXiii/subreddit-client.git
+   cd subreddit-client
+   ```
 
-    9. user can scroll on page (with button) based on last element child
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+### Development
+
+Start the development server:
+
+```sh
+npm run dev
+```
+
+The app will open in your browser at [http://localhost:5173](http://localhost:5173) (or another port if 5173 is in use).
+
+### Build
+
+To build for production:
+
+```sh
+npm run build
+```
+
+To preview the production build:
+
+```sh
+npm run preview
+```
+
+## Project Structure
+
+- `src/` - Main source code
+  - `components/` - UI components (modal, toast, loader, etc.)
+  - `css/` - Custom CSS and animations
+  - `localStorage/` - Local storage utilities
+  - `theme/` - Theme toggling logic
+  - `utils/` - Core logic for subreddit fetching and rendering
+- `public/` - Static assets (images, icons)
+- `index.html` - Main HTML file
+- `vite.config.js` - Vite configuration
+- `tailwind.config.js` - Tailwind CSS configuration
+
+## Credits
+
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Toastify JS](https://apvarun.github.io/toastify-js/)
+- [Ionicons](https://ionic.io/ionicons)
+
+## License
+
+This project is licensed under the
